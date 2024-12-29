@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Особистий кабінет</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Навігація -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('index') }}">Екскурсії</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <li class="nav-item"><a class="nav2-link" href="{{ url_for('dashboard') }}">{{ session['user_name'] }}</a></li>
+        </li>
+        <li class="nav-item">
+          <li class="nav-item"><a class="nav1-link btn btn-danger text-white" href="{{ url_for('logout') }}">Вийти</a></li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Основний контент -->
+  <div class="container mt-5">
+    <h1>Вітаємо, {{ user.name }}!</h1>
+    <p>Ваш email: {{ user.email }}</p>
+    <p>Дата реєстрації: {{ user.created_at.strftime('%d.%m.%Y %H:%M') }}</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
